@@ -1,7 +1,12 @@
 (ns first-factorial.core
+  (:use first-factorial.fn-factorial.factorial)
+  (:require [first-factorial.fn-factorial.factorial :refer :all])
   (:gen-class))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "ask for factorial"
   [& args]
-  (println "Hello, World!"))
+  (loop [value (do
+         (println "Enter an Integer:")
+         (read-string (read-line)))]
+    (println (format "Result: %d" (factorial value)))))

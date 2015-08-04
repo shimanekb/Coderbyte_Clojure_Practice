@@ -2,4 +2,7 @@
 
 (defn factorial [number]
   "will return factorial for a given Integer"
-  number)
+  (loop [x number result 1]
+    (if (< x 1)
+      result
+      (recur (dec x) (* result x)))))
