@@ -1,7 +1,11 @@
 (ns simple-adding.core
+  (:use [simple-adding.simple-add :only (simple-add)])
   (:gen-class))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "ask for input"
   [& args]
-  (println "Hello, World!"))
+  (loop [value (do
+                 (println "Please enter a positive integer:")
+                 (read-string (read-line)))]
+    (println (format "Result %d" (simple-add value)))))
